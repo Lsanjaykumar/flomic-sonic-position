@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <script src="https://kit.fontawesome.com/34d7faf150.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+        button {
+            font-size: 1.3rem;
+            border: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        body {
+            margin: 0;
+
+        }
+
+        .container {
+            width: 20%;
+            position: fixed;
+            height: 100%;
+            background-color: gray;
+        }
+
+        .container>div {
+            margin: 50px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            padding: 20px;
+            background-color: #31363a;
+            color: white;
+            border-bottom: solid 1px gray;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        li:nth-child(1) {
+            border-left: 5px solid rgb(45, 172, 223);
+        }
+
+        li:nth-child(2) {
+            border-left: 5px solid rgb(209, 173, 12);
+        }
+
+        li:nth-child(3) {
+            border-left: 5px solid rgb(93, 45, 223);
+        }
+
+        li:nth-child(4) {
+            border-left: 5px solid rgb(67, 212, 67);
+        }
+
+        li:nth-child(5) {
+            border-left: 5px solid rgb(245, 96, 178);
+        }
+
+        .main {
+            width: 80%;
+            /* position: absolute; */
+            /* z-index: -1; */
+            margin-left: 20%;
+        }
+
+        .village {
+            background-image: url(images/village.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+
+        }
+
+        .village>:nth-child(1) {
+            /* width: 1052px; */
+            text-align: center;
+            height: 400px;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: grid;
+            grid-template-columns: 100%;
+            align-items: center;
+            color: white;
+        }
+
+        .v>div>:nth-child(2),
+        .v>div:nth-child(2) {
+            padding: 20px;
+        }
+
+        .v button {
+            border: 0;
+            background: rgb(18, 149, 189);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .v2 {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+        }
+
+        .section {
+            width: 80%;
+            margin: auto;
+        }
+        #open,#exit{
+            display: none;
+        }
+
+        label[for="open"],
+        label[for="exit"] {
+                display: none;
+                position: fixed;
+                right: 50px;
+                bottom: 30px;
+                font-size: 1.5rem;
+                border-radius: 50%;
+                background-color: #000000;
+                color: white;
+                padding: 5px;
+        }
+        #open:checked~.container,#open:checked~.lab label[for="exit"]{
+            display: block;
+        }
+        #open:checked~.container,#open:checked~.lab label[for="exit"]:hover{
+            transition-delay: 5s;
+        }
+        #open:checked~.lab label[for="open"]{
+
+            display: none;
+        }
+
+            /* label[for="exit"] {
+                position: fixed;
+                right: 53px;
+                bottom: 32px;
+                font-size: 1.2rem;
+                border-radius: 50%;
+                background-color: black;
+                padding: 5px;
+                color: white;
+            } */
+
+        .welcome {
+            text-align: center;
+            padding: 40px 0;
+            color: gray;
+        }
+
+        .welcome h3 {
+            color: skyblue;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .border {
+            border: solid 3px rgb(255, 174, 0);
+        }
+
+        #ab {
+            padding: 8px 20px;
+            background-color: rgb(255, 174, 0);
+            border: none;
+            color: white;
+        }
+
+        .rs {
+            display: grid;
+            grid-template-columns: repeat(3, 31%);
+            gap: 30px;
+            padding: 50px 0;
+            text-align: center;
+            color: gray;
+        }
+
+        .rs>div>h3 {
+            color: rgb(201, 115, 16);
+        }
+
+        .inside-manage {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            align-items: center;
+            text-align: justify;
+            padding-bottom: 50px;
+        }
+
+        .inside-manage h3 {
+            color: rgb(201, 115, 16);
+        }
+
+        .inside-manage>:nth-child(2) {
+            text-align: center;
+        }
+
+        .border1 {
+            border: solid 3px #984cea;
+        }
+
+        #ser {
+            padding: 8px 20px;
+            background-color: #984cea;
+            border: none;
+            color: white;
+        }
+
+        .best {
+            padding: 50px 0;
+            display: grid;
+            grid-template-columns: repeat(3, 31.9%);
+            gap: 20px
+        }
+
+        .best button {
+            background-color: #984cea;
+            color: white;
+            padding: 20px;
+        }
+
+        .best>div {
+            background-color: #984cea;
+            color: white;
+        }
+
+        .skill {
+            display: grid;
+            grid-template-columns: 60% 34%;
+            text-align: justify;
+            justify-content: space-between;
+            padding: 40px 0;
+        }
+
+        .skill h3 {
+            color: #984cea;
+        }
+
+        .range>div {
+            background-color: rgba(218, 214, 214, 0.884);
+            margin: 10px;
+            border-radius: 20px;
+        }
+
+        .range>div>div {
+            background-color: #984cea;
+            color: white;
+            font-size: small;
+            padding: 2px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .range>:nth-child(1)>div {
+            width: 90%;
+        }
+
+        .range>:nth-child(2)>div {
+            width: 75%;
+        }
+
+        .range>:nth-child(3)>div {
+            width: 66%;
+        }
+
+        .range>:nth-child(4)>div {
+            width: 80%;
+        }
+
+        .border2 {
+            border: solid 1px #38e395;
+        }
+
+        #port {
+            background-color: #38e395;
+            color: white;
+        }
+
+        .image {
+            display: grid;
+            grid-template-columns: repeat(3, 30%);
+            justify-content: space-between;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .image h3 {
+            color: #38e395;
+        }
+
+        .image button {
+            background-color: #38e395;
+            color: white;
+            padding: 10px;
+        }
+
+        .image>:last-child {
+            grid-column: span 3;
+        }
+
+        .border3 {
+            border: solid 1px #e3387c;
+        }
+
+        #con {
+            background-color: #e3387c;
+            color: white;
+        }
+
+        .map {
+            padding: 50px;
+            position: relative;
+        }
+
+        .alert {
+            width: 50%;
+            border: solid 1px #d8d9dd;
+            border-radius: 5px;
+            padding: 10px 20px;
+            position: absolute;
+            top: 60px;
+            left: 195px;
+            background-color: white
+        }
+
+        .alert h3,
+        .alert>div :nth-child(3) {
+            color: gray;
+        }
+
+        .map button {
+            border: solid 1px gray;
+            background-color: white;
+            color: rgb(0, 174, 255);
+            font-size: medium;
+            position: absolute;
+            right: 20px;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-weight: 900;
+
+        }
+
+        .form {
+            display: grid;
+            grid-template-columns: repeat(3, 30%);
+            justify-content: space-between;
+            color: gray;
+            padding: 40px 0;
+            row-gap: 40px;
+        }
+
+        form {
+            padding-bottom: 50px;
+        }
+
+        .form>:last-child {
+            grid-column: span 3;
+        }
+
+        #tx1,
+        #tx2,
+        #tx3,
+        #tx4 {
+            width: 100%;
+            padding: 10px;
+        }
+
+        form button {
+            background-color: #e3387c;
+            color: white;
+            font-size: small;
+            padding: 10px;
+        }
+
+        footer {
+            background-color: #4b5056;
+            color: white;
+            text-align: center;
+            padding: 50px;
+            border-left: solid 7px #31363a;
+        }
+
+        footer>div {
+            width: 30%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(5, 15%);
+            justify-content: space-between;
+        }
+
+        footer i {
+            background-color: #31363a;
+            padding: 10px;
+        }
+
+        #foot {
+            background-color: #31363a;
+            color: gray;
+            padding: 30px;
+        }
+
+        #foot span {
+            color: white;
+        }
+
+        @media screen and (max-width:576px) {
+            .container {
+                width: 30%;
+                /* visibility: hidden; */
+                display: none;
+            }
+            label[for="open"]{
+                display: block;
+            }
+            .main {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            /* label[for="open"],label[for="exit"]{
+            visibility: visible;
+            
+        } */
+            /* label[for="open"] {
+                visibility: visible;
+                position: fixed;
+                right: 50px;
+                bottom: 30px;
+                font-size: 1.5rem;
+                border-radius: 50%;
+                background-color: #000000;
+                color: white;
+                padding: 5px;
+            }
+
+            label[for="exit"] {
+                position: fixed;
+                right: 53px;
+                bottom: 32px;
+                font-size: 1.2rem;
+                border-radius: 50%;
+                background-color: black;
+                padding: 5px;
+                color: white;
+            } */
+
+            .rs,
+            .inside-manage,
+            .best,
+            .skill,
+            .image,
+            .form {
+                grid-template-columns: 100%;
+            }
+
+            .image>:last-child,
+            .form>:last-child {
+                grid-column: span 1;
+            }
+
+            .alert {
+                visibility: hidden;
+            }
+
+            .map {
+                padding: 20px;
+            }
+
+            footer>div {
+                width: 100%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <input type="radio" id="open" name="r">
+        <input type="radio" id="exit" name="r">
+        <div class="lab">
+            <label for="open">
+                &#x2630
+            </label>
+            <label for="exit">
+                <i class="fa-solid fa-x"></i>
+            </label>
+        </div>
+        <div class="container">
+            <div><img src="images/logo.jpg" alt=""></div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#head">HOME</a></li>
+                    <li><a href="#ab">ABOUT US </a></li>
+                    <li><a href="#ser">SERVICES</a></li>
+                    <li><a href="#port">PORTFOLIO</a></li>
+                    <li><a href="#con">CONTACT US</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            <header id="head">
+                <div class="village">
+                    <div class="v">
+                        <div>
+                            <h4>RESPONSIVE LAYOUT</h4>
+                            <div>Village sun set is very Very beautiful </div>
+                            <div><button>Read More</button></div>
+                        </div>
+                        <!-- <div>
+                            <input type="radio">
+                            <input type="radio">
+                        <input type="radio">
+                    </div> -->
+                    </div>
+                    <div class="v2">
+                        <input type="radio" name="1">
+                        <input type="radio" name="1">
+                        <input type="radio" name="1">
+                    </div>
+                </div>
+            </header>
+            <section>
+                <div class="section">
+                    <div class="welcome">
+                        <h3>WELCOME TO TEMPLATE</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam, iure quos vero ratione
+                            nisi
+                            tempore velit. Delectus eum voluptatum repellendus, voluptas deleniti facilis ab. Deleniti,
+                            pariatur
+                            iure. Ab, voluptatum suscipit.</p>
+                    </div>
+                    <div class="border"></div>
+                    <button id="ab">ABOUT US</button>
+                    <div class="manage">
+                        <div class="rs">
+                            <div>
+                                <img src="images/r1.webp" alt="r1">
+                                <h3>CHRISTINA WELDONE</h3>
+                                <p>Marketing irector</p>
+                            </div>
+                            <div>
+                                <img src="images/r2.webp" alt="r2">
+                                <h3>TERI BELLI</h3>
+                                <p>Creative Excutive</p>
+                            </div>
+                            <div>
+                                <img src="images/r3.webp" alt="r3">
+                                <h3>TAWANA CHERRY</h3>
+                                <p>Company President</p>
+                            </div>
+                        </div>
+                        <div class="inside-manage">
+                            <div>
+                                <h3>OUR TEAM MANAGEMENT</h3>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores cum commodi illo
+                                    expedita est, consectetur omnis mollitia voluptates alias eos totam id,
+                                    necessitatibus recusandae error quos voluptatibus, a dolore placeat.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit, amet
+                                    consectetur adipisicing elit. Quos, sapiente unde fugiat amet corrupti modi ut
+                                    aspernatur cum saepe est aliquam distinctio illum ab! Impedit eligendi dolor odit
+                                    consequuntur illum! Ipsum vero quia aut fugiat itaque quam nihil perspiciatis velit
+                                    eveniet nesciunt praesentium at mollitia id distinctio suscipit doloribus, magni
+                                    laborum. Cumque!</p>
+                            </div>
+                            <div>
+                                <img src="images/screen.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border1"></div>
+                    <button id="ser">SERVICES</button>
+                    <div class="best">
+                        <div><button><i class="fa-solid fa-bolt"></i>&emsp;The Best Support Ever</button></div>
+                        <div><button><i class="fa-solid fa-laptop"></i>&emsp;Fully Responsive Design</button></div>
+                        <div><button><i class="fa-solid fa-pencil"></i>&emsp;Unlimitted layouts Options</button></div>
+                    </div>
+                    <div class="skill">
+                        <div>
+                            <h3>Our Skills</h3>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi nesciunt qui similique
+                                dolore corporis a culpa laudantium quaerat molestiae rerum reprehenderit in quae
+                                provident incidunt, impedit eaque eum eligendi non?</p>
+                        </div>
+                        <div class="range">
+                            <div>
+                                <div>GRAPHICS 90%</div>
+                            </div>
+                            <div>
+                                <div>HTML5 CSS3 75%</div>
+                            </div>
+                            <div>
+                                <div>WORDPRESS 66%</div>
+                            </div>
+                            <div>
+                                <div>MARKETING 80%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border2"></div>
+                    <button id="port">PORTFOLIO</button>
+                    <section>
+                        <div class="image">
+                            <div>
+                                <img src="images/fan.webp" alt="fan">
+                                <h3>FANTASY</h3>
+                            </div>
+                            <div>
+                                <img src="images/bot.webp" alt="bot">
+                                <h3>BOTANY</h3>
+                            </div>
+                            <div>
+                                <img src="images/ni.webp" alt="ni">
+                                <h3>UNIVERSAL</h3>
+                            </div>
+                            <div>
+                                <img src="images/cha.webp" alt="cha">
+                                <h3>CHANNEL</h3>
+                            </div>
+                            <div>
+                                <img src="images/dra.webp" alt="dra">
+                                <h3>DRAGONFLY</h3>
+                            </div>
+                            <div>
+                                <img src="images/tit.webp" alt="tit">
+                                <h3>TITANIUM</h3>
+                            </div>
+                            <div>
+                                <button>LOAD MORE</button>
+                            </div>
+                        </div>
+                        <div class="border3"></div>
+                        <button id="con">CONTACT US</button>
+                    </section>
+                    <section>
+                        <div class="map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62883.09595735833!2d78.12282365!3d9.91783685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c582b1189633%3A0xdc955b7264f63933!2sMadurai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1680681017539!5m2!1sen!2sin"
+                                width="100%" height="450" style="border: solid 8px rgb(207, 202, 202);"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="alert">
+                                <div>
+                                    <h3>GOOGLE</h3>
+                                    <p>This page can't load Google Maps corectly.</p>
+                                    <p>Do you own this website? <button>OK</button></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <form>
+                            <div class="form">
+                                <div>
+                                    Name: <br><br>
+                                    <input type="text" id="tx1">
+                                </div>
+                                <div>
+                                    Email: <br><br>
+                                    <input type="text" id="tx2">
+                                </div>
+                                <div>
+                                    Subject: <br><br>
+                                    <input type="text" id="tx3">
+                                </div>
+                                <div>
+                                    Message:<br><br>
+                                    <textarea rows=9 id="tx4"></textarea>
+                                </div>
+                            </div>
+                            <button>SEND MESSAGE</button>
+                        </form>
+                    </section>
+
+                </div>
+                <footer>
+                    <div>
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-solid fa-volleyball"></i>
+                        <i class="fa-brands fa-linkedin-in"></i>
+                        <i class="fa-solid fa-wifi "></i>
+                    </div>
+                </footer>
+                <section id="foot">
+                    <div>
+                        Copyright &copy; 2015 <span>Flomic</span>
+                    </div>
+                </section>
+            </section>
+        </div>
+</body>
+
+</html>
